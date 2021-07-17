@@ -1,6 +1,6 @@
+
 .wrapper__header {
   border-bottom: 1px solid #EBEBEB;
-
 
   .wrapper__second__header {
     width: 100%;
@@ -8,7 +8,9 @@
     margin: 0 auto;
 
     .header {
-
+      .user__header{
+        display: none;
+      }
       .header__container {
         height: 95px;
         display: flex;
@@ -39,6 +41,8 @@
           background-color: #000;
           color: #fff;
         }
+
+
       }
     }
   }
@@ -130,7 +134,6 @@
     }
 
     .main__bottom {
-
 
       .h1__main {
         font-family: 'Playfair Display', serif;
@@ -224,7 +227,66 @@
     }
   }
 }
+.wrapper__valid {
+  .valid__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .h2__text {
+      margin-top: 80px;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 56px;
+      margin-bottom: 30px;
+    }
+    .valid__form{
+      display: flex;
+      flex-direction: column;
+      .input{
 
+        width: 396px;
+        height: 47px;
+
+      }
+      p{
+        font-size: 14px;
+        line-height: 14px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 400;
+        color: #242424;
+      }
+    }
+    .valid__bottom{
+      .marg{
+        margin-bottom: 110px;
+      }
+      .button__valid{
+        margin: 48px 0px 15px;
+
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 15px;
+        background: #242424;
+        width: 399px;
+        height: 55px;
+        color: #FFFFFF;
+        border: 1px solid #242424 ;
+      }
+      p{
+
+        text-align: center;
+        color: #242424;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 15px;
+        margin-bottom: 281px;
+      }
+    }
+  }
+}
 .wrapper__footer {
   background: #242424;
 
@@ -276,21 +338,34 @@
       .footer__bottom {
         display: flex;
         justify-content: space-between;
-
         color: rgba(255, 255, 255, 0.5);
         margin-bottom: 24px;
-
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
-
         font-family: 'Inter', sans-serif;
-
-
       }
     }
   }
 }
 
+@media screen and (max-width: 1073px) {
+  .main__top{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  .main__bottom__new{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  .h1__main{
+    display: flex;
+    justify-content: center;
 
+  }
+}
 
