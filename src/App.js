@@ -4,6 +4,7 @@ import Footer from "./components/footer";
 import Main from "./components/main";
 import Create from "./components/create";
 import Valid from "./components/valid";
+import Prof from "./components/prof";
 import React, {useState, useEffect} from 'react';
 
 function App() {
@@ -29,9 +30,8 @@ function App() {
                 <div className="wrapper__header">
                     <Header/>
                 </div>
-
-                <div className="wrapper__valid">
-                    <Create/>
+                <div className="wrapper__prof">
+                    <Prof/>
                 </div>
                 <div className="wrapper__footer">
                     <Footer/>
