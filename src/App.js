@@ -5,6 +5,7 @@ import Main from "./components/main";
 import Create from "./components/create";
 import Valid from "./components/valid";
 import Prof from "./components/prof";
+import InProf from "./components/inprof";
 import React, {useState, useEffect} from 'react';
 
 function App() {
@@ -14,24 +15,28 @@ function App() {
             <head>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display:wght@700&display=swap"
+                    rel="stylesheet"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
                 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+                      rel="stylesheet"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap"
+                      rel="stylesheet"/>
             </head>
             <body>
             <div className="wrapper">
                 <div className="wrapper__header">
                     <Header/>
                 </div>
-                <div className="wrapper__prof">
-                    <Prof/>
+                <div className="wrapper__inProf">
+                    <InProf/>
                 </div>
                 <div className="wrapper__footer">
                     <Footer/>

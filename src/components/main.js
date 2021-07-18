@@ -329,6 +329,14 @@ function Main() {
                             </div>
                         </div>
                     </div>
+                    <div className="bottom__button">
+                        <div>
+                            <button className="prev__next__button">Prev</button>
+                        </div>
+                        <div>
+                            <button className="prev__next__button">Next</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
