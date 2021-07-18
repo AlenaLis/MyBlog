@@ -9,8 +9,8 @@ function Valid() {
                 </div>
                 <div>
                     <form className="valid__form">
-                        <p>Email Address</p> <input className="input" type="text" name="fname"/>
-                        <p>Password</p> <input className="input" type="text" name="lname"/>
+                        <p>Email Address</p> <input className="input" type="text" name="email"/>
+                        <p>Password</p> <input className="input" type="password" name="pass"/>
 
                     </form>
                 </div>

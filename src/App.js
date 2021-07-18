@@ -35,9 +35,10 @@ function App() {
                 <div className="wrapper__header">
                     <Header/>
                 </div>
-                <div className="wrapper__inProf">
-                    <InProf/>
+                <div className="wrapper__valid">
+                    <Create/>
                 </div>
+
                 <div className="wrapper__footer">
                     <Footer/>
                 </div>

@@ -18,11 +18,55 @@
         align-items: center;
         align-content: center;
 
-        .header__button {
+        .hide {
+          display: none;
+          .header__button {
+            border: 1px solid #242424;
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #fff;
+            color: #000;
+            width: 113px;
+            height: 47px;
+
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 15px;
+
+            &:last-child {
+              margin-left: 24px;
+            }
+          }
+
+          .header__button:hover {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+        .link {
+          display: flex;
+
+
+          p {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 15px;
+            color: #8C8C8C;
+            margin-left: 40px;
+          }
+
+          p:hover {
+            color: #242424;
+            border-bottom: 1px solid #242424;
+          }
+        }
+        .header__button__second{
           border: 1px solid #242424;
           font-family: 'IBM Plex Sans', sans-serif;
-          background-color: #fff;
-          color: #000;
+          background: #242424;
+          color: #fff;
           width: 113px;
           height: 47px;
 
@@ -30,18 +74,8 @@
           font-weight: normal;
           font-size: 16px;
           line-height: 15px;
-
-          &:last-child {
-            margin-left: 24px;
-          }
+          margin-left: 64px;
         }
-
-        .header__button:hover {
-          background-color: #000;
-          color: #fff;
-        }
-
-
       }
     }
   }
@@ -309,9 +343,11 @@
         }
       }
     }
+
     .coloum__content {
       display: flex;
       flex-direction: column;
+
       .prof__cont__art {
 
         .main__bottom__art {
@@ -401,6 +437,7 @@
         }
       }
     }
+
     .bottom__button {
       display: flex;
       justify-content: space-between;
@@ -592,6 +629,7 @@
         font-family: 'IBM Plex Sans', sans-serif;
         width: 396px;
         height: 47px;
+        text-indent: 16px;
       }
 
       p {

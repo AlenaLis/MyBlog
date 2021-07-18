@@ -11,7 +11,7 @@ function Header() {
                         <div>
                             <img src="../image/Logo.png"/>
                         </div>
-                        <div>
+                        <div className="hide">
                             <button className="header__button">
                                 Log in
                             </button>
@@ -19,6 +19,16 @@ function Header() {
                                 Sing in
                             </button>
                         </div>
+                        <div className="link">
+                            <p>All articles</p>
+                            <p>My articles</p>
+                            <p>Add article</p>
+                            <p>Profile</p>
+
+                        <div>
+                            <button className="header__button__second">Logout</button>
+                        </div>
+                           </div>
                     </div>
                 </div>
             </div>
