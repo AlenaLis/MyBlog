@@ -1,6 +1,7 @@
 import React from "react";
-
-function Valid() {
+import "./Valid.scss"
+import {Link} from "react-router-dom";
+const Valid = () => {
     return (
         <div>
             <div className="valid__content">
@@ -19,7 +20,7 @@ function Valid() {
                         <button className="button__valid">Create Account</button>
                     </div>
                     <div>
-                        <p> Don’t have a Times account? Create one</p>
+                      <p> Don’t have a Times account?  <Link to='/login/'>Create one</Link></p>
                     </div>
                 </div>
             </div>

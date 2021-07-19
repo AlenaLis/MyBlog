@@ -1,13 +1,14 @@
 import React from "react";
-
-function Footer() {
+import "./Footer.scss"
+import logo from '../../assets/images/Logo.png';
+const Footer = () => {
     return (
         <div>
             <div className="footer__container">
                 <div className="footer__second__container">
                     <div className="foot">
                         <div>
-                            <img src="../image/Logo.png"/>
+                            <img src={logo}/>
                         </div>
                         <div>
                             <button className="footer__button">

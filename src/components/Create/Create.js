@@ -1,6 +1,6 @@
 import React from "react";
-
-function Create() {
+import "./Create.scss"
+const Create = () => {
     return (
         <div>
             <div className="valid__content">

@@ -1,6 +1,7 @@
 import React from "react";
-
-function Prof() {
+import "./Prof.scss";
+import prof from "../../assets/images/prof_photo.png";
+const Prof = () => {
     return (
         <div>
             <div className="prof__content">
@@ -8,11 +9,10 @@ function Prof() {
                     <h2 className="h2__text"> Profile </h2>
                 </div>
                 <div className="prof__cont">
-
                     <div className="prof__cont__photo">
                         <span className="line">
                             <div>
-                                <img src="../image/prof_photo.png"/>
+                                <img src={prof}/>
                             </div>
                             <div>
                                 <button className="photo">Change photo</button>
@@ -22,7 +22,6 @@ function Prof() {
                             </div>
                         </span>
                     </div>
-
                     <div className="prof_edit">
                         <form className="prof__form">
                             <div className="form__content">

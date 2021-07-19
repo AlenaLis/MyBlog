@@ -1,51 +1,40 @@
 import './App.scss';
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Main from "./components/main";
-import Create from "./components/create";
-import Valid from "./components/valid";
-import Prof from "./components/prof";
-import InProf from "./components/inprof";
-import React, {useState, useEffect} from 'react';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import React, {useEffect, useState} from 'react';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {routes} from "./routes/routes";
+import {blogs} from "./MockDate/mock";
 
-function App() {
+const App = () => {
 
-    return (
-        <div className="App">
-            <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Playfair+Display:wght@700&display=swap"
-                    rel="stylesheet"/>
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
-                      rel="stylesheet"/>
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-                <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap"
-                      rel="stylesheet"/>
-            </head>
-            <body>
-            <div className="wrapper">
-                <div className="wrapper__header">
-                    <Header/>
-                </div>
-                <div className="wrapper__valid">
-                    <Create/>
-                </div>
 
-                <div className="wrapper__footer">
-                    <Footer/>
-                </div>
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <div className="wrapper">
+          <div className="wrapper__header">
+            <Header/>
+          </div>
+          <Switch>
+            <div className="wrapper__all">
+              {routes.map((route, index) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.component}
+                />
+              ))}
             </div>
-            </body>
+          </Switch>
+          <div className="wrapper__footer">
+            <Footer/>
+          </div>
         </div>
-    );
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
