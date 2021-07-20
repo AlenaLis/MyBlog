@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
-import {blogs} from "../../MockDate/mock";
+import {blogs} from "../../assets/Services/mock";
 
 import eyeicon from '../../assets/images/eye icon.png';
 import mainpic from '../../assets/images/pictureMain1.png';
@@ -9,18 +9,18 @@ import mainhuman from '../../assets/images/human.png';
 import "./Main.scss";
 
 const Main = () => {
-
+  let {id} = useParams();
   const [allBlogs, setAllBlogs] = useState([])
   const isBlogs = localStorage.getItem('blogs')
   useEffect(() => {
-    if (!isBlogs){
+
+    if (!isBlogs) {
       localStorage.setItem('blogs', JSON.stringify(blogs))
       setAllBlogs(blogs)
     } else {
       setAllBlogs(JSON.parse(localStorage.getItem('blogs')))
     }
   }, [])
-
 
   return (
     <div>
@@ -73,7 +73,6 @@ const Main = () => {
           <div>
             <h1 className="h1__main">Popular articles</h1>
           </div>
-
           {allBlogs?.map((blog) => (
             <div className="main__bottom__art">
               <div className="main__bottom__new">
@@ -87,7 +86,7 @@ const Main = () => {
                   </div>
                   <div>
                     <h2 className="h2__text">
-                      <Link to= {`/art${blog.id}/`}>{blog.title}</Link>
+                      <Link to={`/art/${blog.id}/`} path="/posts/:id" style={{ textDecoration: 'none', color:'#242424'}}>{blog.title}</Link>
                     </h2>
                     <p className="p__text">
                       {blog.text}

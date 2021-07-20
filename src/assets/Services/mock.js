@@ -1,16 +1,17 @@
-import img1 from "../assets/images/art.png";
-import human1 from "../assets/images/human.png";
-import eyeicon from "../assets/images/eye icon.png";
-import img2 from "../assets/images/art2.png";
-import human2 from "../assets/images/human2.png";
-import img3 from "../assets/images/art3.png";
-import human3 from "../assets/images/human3.png";
-import img4 from "../assets/images/art4.png";
-import human4 from "../assets/images/human4.png";
-import img5 from "../assets/images/art5.png";
-import human5 from "../assets/images/human5.png";
-import img6 from "../assets/images/art6.png";
-import human6 from "../assets/images/human6.png";
+import img1 from "../images/art.png";
+import human1 from "../images/human.png";
+import eyeicon from "../images/eye icon.png";
+import img2 from "../images/art2.png";
+import human2 from "../images/human2.png";
+import img3 from "../images/art3.png";
+import human3 from "../images/human3.png";
+import img4 from "../images/art4.png";
+import human4 from "../images/human4.png";
+import img5 from "../images/art5.png";
+import human5 from "../images/human5.png";
+import img6 from "../images/art6.png";
+import human6 from "../images/human6.png";
+
 
 export const blogs=[
   {

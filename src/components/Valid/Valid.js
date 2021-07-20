@@ -12,7 +12,6 @@ const Valid = () => {
                     <form className="valid__form">
                         <p>Email Address</p> <input className="input" type="text" name="email"/>
                         <p>Password</p> <input className="input" type="password" name="pass"/>
-
                     </form>
                 </div>
                 <div className="valid__bottom">
@@ -20,7 +19,14 @@ const Valid = () => {
                         <button className="button__valid">Create Account</button>
                     </div>
                     <div>
-                      <p> Don’t have a Times account?  <Link to='/login/'>Create one</Link></p>
+                      <p> Don’t have a Times account?
+                        <Link
+                          to='/login/'
+                          style={{ textDecoration: 'none',color:'#000'}}
+                        >
+                          Create one
+                        </Link>
+                      </p>
                     </div>
                 </div>
             </div>

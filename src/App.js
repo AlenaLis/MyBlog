@@ -4,10 +4,9 @@ import Footer from "./components/Footer/Footer";
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {routes} from "./routes/routes";
-import {blogs} from "./MockDate/mock";
+import {blogs} from "./assets/Services/mock";
 
 const App = () => {
-
 
   return (
     <BrowserRouter>

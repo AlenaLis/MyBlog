@@ -26,6 +26,10 @@
 
         .main__bottom__new {
 
+          .art {
+            width: 676px;
+            height: 399px;
+          }
 
           button {
             font-family: 'Inter', sans-serif;
@@ -47,7 +51,6 @@
             font-size: 48px;
             line-height: 60px;
             width: 676px;
-
           }
 
           .main__panel__bottom__art {
@@ -66,6 +69,11 @@
 
             .state {
 
+              img {
+                width: 676px;
+                height: 399px;
+              }
+
               h3 {
                 margin-top: 64px;
                 font-family: 'Playfair Display', serif;
@@ -82,7 +90,8 @@
               }
 
               img {
-                margin-top: 32px;
+                width: 676px;
+                height: 399px;
               }
 
               figcaption {

@@ -14,7 +14,13 @@ console.log('===>select', select);
       <div className="wrapper__second__header">
         <div className="header">
           <div className="header__container">
-            <img src={logo}/>
+            <Link
+              to='/'
+              style={{ textDecoration: 'none'}}
+            >
+              <img src={logo}/>
+            </Link>
+
             <div>
               {select === 'true'
                 ? (

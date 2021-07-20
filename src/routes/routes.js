@@ -37,7 +37,7 @@ export const routes = [
     exact: true,
   },
   {
-    path: '/art:id/',
+    path: '/art/:id/',
     component: Article,
     exact: true,
   },
