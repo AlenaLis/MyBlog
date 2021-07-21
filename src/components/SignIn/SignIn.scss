@@ -23,7 +23,11 @@
       text-indent: 16px;
     }
     .error-input{
-      background: red;
+      font-family: 'IBM Plex Sans', sans-serif;
+      width: 396px;
+      height: 47px;
+      text-indent: 16px;
+      border: 1px solid red;
     }
 
     p {
@@ -32,6 +36,16 @@
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 400;
       color: #242424;
+    }
+    .validation{
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #CF4949;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 14px;
+     margin-top: 4px;
+      margin-bottom: 0px;
     }
   }
 

@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import "./Create.scss"
+
+import "./SignIn.scss"
 import validation from "../../assets/Services/validation";
 
-const Create = () => {
+const SignIn = () => {
 
   const [form, setForm] = useState({
     firstInput: {
@@ -41,8 +42,22 @@ const Create = () => {
     }))
   }
   const checkValid = () => {
+
+    const  tempValid = validation(form)
     //setIsValid(Validation(form))
-    setValid(validation(form))
+    setValid(tempValid)
+    const lastArray = JSON.parse(localStorage.getItem("users"));
+    if (tempValid) {
+      console.log('===>lastArray', lastArray);
+      if (lastArray && lastArray.length > 0){
+
+        localStorage.setItem('form', JSON.stringify(form))
+        lastArray.push(form);
+        localStorage.setItem('users', JSON.stringify(lastArray))
+      } else {
+        localStorage.setItem('users', JSON.stringify([form]))
+      }
+    }
   }
     return (
         <div>
@@ -63,40 +78,51 @@ const Create = () => {
                         type="text"
                         name="firstname"
                       />
+                      {!valid.firstField && <p className="validation">
+                        Please enter other variant of the first name.
+                      </p>}
                         <p>Last name</p>
                       <input
                         value={form.secondInput.value}
                         onChange={
                           (e) => handleChange(e, 'secondInput')
                         }
-                        className="input"
+                        className={valid.lastField  ? 'input': 'input error-input'}
                         id="lastname"
                         type="text"
                         name="lastname"
                       />
+                      {!valid.lastField && <p className="validation">
+                        Please enter other variant of the second name.
+                      </p>}
                        <p>Email Address</p>
                       <input
                         value={form.thirdInput.value}
                         onChange={
                           (e) => handleChange(e, 'thirdInput')
                         }
-                        className="input"
+                        className={valid.emailField  ? 'input': 'input error-input'}
                         id="email"
                         type="text"
                         name="email"
                       />
+                      {!valid.emailField && <p className="validation">
+                        Please enter other variant of the email.
+                      </p>}
                       <p>Password</p>
                       <input
                         value={form.fourInput.value}
                         onChange={
                           (e) => handleChange(e, 'fourInput')
                         }
-                        className="input"
+                        className={valid.passField  ? 'input': 'input error-input'}
                         id="pass"
                         type="password"
                         name="pass"
                       />
-
+                      {!valid.passField && <p className="validation">
+                        Please enter other variant of the password.
+                      </p>}
                     </form>
                 </div>
                 <div className="valid__bottom">
@@ -109,4 +135,4 @@ const Create = () => {
     );
 }
 
-export default Create;
+export default SignIn;

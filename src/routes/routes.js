@@ -3,8 +3,8 @@ import Main from "../components/Main/Main";
 import Prof from "../components/Prof/Prof";
 import AddArt from "../components/AddArt/AddArt";
 import InProf from "../components/InProf/InProf";
-import Valid from "../components/Valid/Valid";
-import Create from "../components/Create/Create";
+import LogIn from "../components/LogIn/LogIn";
+import SignIn from "../components/SignIn/SignIn";
 export const routes = [
   {
     path: '/',
@@ -28,12 +28,12 @@ export const routes = [
   },
   {
     path: '/login/',
-    component: Create,
+    component: SignIn,
     exact: true,
   },
   {
     path: '/singin/',
-    component: Valid,
+    component: LogIn,
     exact: true,
   },
   {

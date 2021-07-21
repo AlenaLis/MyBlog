@@ -2,13 +2,21 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import "./Header.scss"
 import logo from '../../assets/images/Logo.png';
+
+
 const Header = () => {
-  if (!localStorage.getItem('isLogin')) {
-    localStorage.setItem('isLogin', 'true');
-  }
+
+
+  // if (!localStorage.getItem('isLogin')) {
+  //   localStorage.setItem('isLogin', 'false');
+  //
+  // } else {
+  //         localStorage.setItem('isLogin', 'true');
+  //       }
+
 
   const [select, setSelect] = useState(localStorage.getItem('isLogin'))
-console.log('===>select', select);
+console.log('===>v',select );
   return (
     <div>
       <div className="wrapper__second__header">
@@ -25,11 +33,11 @@ console.log('===>select', select);
               {select === 'true'
                 ? (
                   <div>
-                    <Link to='/login/'>
+                    <Link to='/singin/'>
                     <button className="header__button">
                        Log in
                     </button></Link>
-                    <Link to='/singin/'>
+                    <Link to='/login/'>
                     <button className="header__button">
                        Sing in
                     </button></Link>
@@ -53,7 +61,7 @@ console.log('===>select', select);
                     <button
                       className="header__button__second"
                       onClick={() => {
-                        localStorage.setItem('isLogin', 'true')
+                        localStorage.setItem('isLogin', 'false')
                         setSelect(localStorage.getItem('isLogin'))
                       }}
                     >
