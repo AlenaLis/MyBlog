@@ -5,7 +5,7 @@ import Editor, {createEditorStateWithText} from "draft-js-plugins-editor";
 
 import createToolbarPlugin, {Separator} from "draft-js-static-toolbar-plugin";
 import 'draft-js/dist/Draft.css';
-
+import "./editorStyles.scss";
 import {convertToRaw} from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import {
@@ -21,10 +21,6 @@ import {
 
 
 const AddArt = () => {
-
-    const toolbarPlugin = createToolbarPlugin();
-    const {Toolbar} = toolbarPlugin;
-    const plugins = [toolbarPlugin];
 
     const text = "ewfwefwefwefwfewfwfwf";
 
@@ -59,40 +55,35 @@ const AddArt = () => {
         }
     }
 
+    const toolbarPlugin = createToolbarPlugin({
+        structure: [
+            BoldButton,
+            ItalicButton,
+            UnderlineButton,
+            CodeButton,
+            Separator,
+            UnorderedListButton,
+            OrderedListButton,
+            BlockquoteButton,
+            CodeBlockButton
+        ]
+    });
+    const {Toolbar} = toolbarPlugin;
+    const plugins = [toolbarPlugin];
+    const foc = (e) => {
+        e.editor.focus();
+    };
 
     return (
         <div>
-
             <div className="addArt__content">
                 <div>
                     <h2 className="h2__text"> Add article </h2>
                 </div>
                 <div>
-                    <div >
-
-
-                        <div>
-                            <Toolbar>
-                                {
-                                    // may be use React.Fragment instead of div to improve perfomance after React 16
-                                    (externalProps) => (
-
-                                        <div  >
-                                            <BoldButton {...externalProps} />
-                                            <ItalicButton {...externalProps} />
-                                            <UnderlineButton {...externalProps} />
-                                            <CodeButton {...externalProps} />
-                                            <Separator {...externalProps} />
-                                            <UnorderedListButton {...externalProps} />
-                                            <OrderedListButton {...externalProps} />
-                                            <BlockquoteButton {...externalProps} />
-                                            <CodeBlockButton {...externalProps} />
-                                        </div>
-                                    )
-                                }
-                            </Toolbar>
-
-
+                    <div>
+                        <div className="editor" onClick={foc}>
+                            <Toolbar/>
                             <form className="valid__form">
                                 <div className="text" style={{border: '1px solid #E1E1E1', padding: 20}}>
                                     <Editor
@@ -106,7 +97,7 @@ const AddArt = () => {
                                         ref={(e) => {
                                             newArticle.text.editor = e;
                                         }}
-                                        id = "title"
+                                        id="title"
                                     />
                                 </div>
                                 <div className="text" style={{border: '1px solid #E1E1E1', padding: 20}}>
@@ -149,7 +140,7 @@ const AddArt = () => {
                 </div>
             </div>
         </div>
-            );
-            }
+    );
+}
 
-            export default AddArt;
+export default AddArt;
