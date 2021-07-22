@@ -23,13 +23,13 @@ const SignIn = () => {
       type: '',
     },
   })
+
  const [valid, setValid] = useState({
    firstField: true,
    lastField: true,
    emailField: true,
    passField: true,
  })
-  console.log('===>valid', valid);
 
   const handleChange = (e, key) =>  {
     const {value, type} = e.target
@@ -48,9 +48,8 @@ const SignIn = () => {
     setValid(tempValid)
     const lastArray = JSON.parse(localStorage.getItem("users"));
     if (tempValid) {
-      console.log('===>lastArray', lastArray);
-      if (lastArray && lastArray.length > 0){
 
+      if (lastArray && lastArray.length > 0){
         localStorage.setItem('form', JSON.stringify(form))
         lastArray.push(form);
         localStorage.setItem('users', JSON.stringify(lastArray))

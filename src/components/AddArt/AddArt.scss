@@ -22,9 +22,36 @@
     background: #F8F8F8;
     margin-bottom: 24px;
 
+    .left{
+      justify-content: flex-start;
+      margin-right: 2px;
+    }
+
+    .right{
+      justify-content: flex-end;
+    }
   }
 
   .valid__form {
+    .text {
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 16px;
+      color: #242424;
+    }
+
+    .descript {
+      height: 335px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 16px;
+      color: #242424;
+    }
 
     .input {
       margin-bottom: 24px;
@@ -32,8 +59,10 @@
       width: 1070px;
       height: 48px;
       text-indent: 16px;
-      border: 1px solid #E1E1E1;
+      border: 1px solid #red;
+
     }
+
 
     .input__text {
       font-family: 'IBM Plex Sans', sans-serif;

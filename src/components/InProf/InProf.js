@@ -9,6 +9,9 @@ import prof4 from "../../assets/images/profArt4.png";
 import prof from "../../assets/images/prof_photo.png";
 
 const InProf = () => {
+
+  const userArticle = JSON.parse(localStorage.getItem("users"));
+
   const obj = [
     {
       img_art: prof1,
