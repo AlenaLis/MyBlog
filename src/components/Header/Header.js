@@ -15,8 +15,7 @@ const Header = () => {
   //       }
 
 
-  const [select, setSelect] = useState(localStorage.getItem('isLogin'))
-console.log('===>v',select );
+  const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
   return (
     <div>
       <div className="wrapper__second__header">
@@ -30,7 +29,7 @@ console.log('===>v',select );
             </Link>
 
             <div>
-              {select === 'true'
+              {!isLogin
                 ? (
                   <div>
                     <Link to='/singin/'>
@@ -61,8 +60,8 @@ console.log('===>v',select );
                     <button
                       className="header__button__second"
                       onClick={() => {
-                        localStorage.setItem('isLogin', 'false')
-                        setSelect(localStorage.getItem('isLogin'))
+                        localStorage.setItem('isLogin', JSON.stringify(false))
+                        setIsLogin(JSON.parse(localStorage.getItem('isLogin')))
                       }}
                     >
                       Logout

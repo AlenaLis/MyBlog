@@ -10,29 +10,11 @@
     font-size: 56px;
     line-height: 56px;
     margin-bottom: 64px;
-  }
-
-  .func {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    width: 1070px;
-    height: 68px;
-    background: #F8F8F8;
-    margin-bottom: 24px;
-
-    .left{
-      justify-content: flex-start;
-      margin-right: 2px;
-    }
-
-    .right{
-      justify-content: flex-end;
-    }
+    position: relative;
   }
 
   .valid__form {
+    margin-top:100px;
     .text {
       margin-bottom: 24px;
       font-family: 'IBM Plex Sans', sans-serif;
@@ -42,24 +24,18 @@
       line-height: 16px;
       color: #242424;
     }
+    input[type="text"] {
+      border: 1px solid #E1E1E1;
 
-    .descript {
-      height: 335px;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 16px;
-      color: #242424;
     }
-
     .input {
       margin-bottom: 24px;
       font-family: 'IBM Plex Sans', sans-serif;
       width: 1070px;
       height: 48px;
       text-indent: 16px;
-      border: 1px solid #red;
+  margin-left: 10px;
+
 
     }
 
@@ -95,6 +71,34 @@
       color: #FFFFFF;
       border: 1px solid #242424;
       margin-bottom: 110px;
+    }
+  }
+  .editor{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    height: 335px;
+    border: 1px solid #E1E1E1;
+    margin-bottom: 100px;
+    margin-left: 10px;
+    width: 1070px;
+    height: fit-content;
+    .toolbarClassName{
+      position: relative;
+
+      top: -262px;
+      justify-content: center;
+      width: 1070px;
+    }
+    .wrapperClassName{
+
+    }
+    .editorClassName{
+      position: relative;
+      top:-100px;
+     padding: 10px;
+      height: fit-content;
     }
   }
 }

@@ -47,32 +47,32 @@ const validation = (form) => {
     object.emailField = true;
   }
 
-  if (form.fourInput.value.length < 6) {
-    object.passField = false;
-  } else {
-    object.passField = true;
-  }
-
-  if (lower.test(form.fourInput.value) === false) {
-    object.passField = false;
-    console.log('===>1 lower');
-  } else {
-    object.passField = true;
-  }
-
-  if (upper.test(form.fourInput.value) === false) {
-    object.passField = false;
-    console.log('===>1 upper');
-  } else {
-    object.passField = true;
-  }
-
-  if (num.test(form.fourInput.value) === false) {
-    object.passField = false;
-    console.log('===>1 num');
-  } else {
-    object.emailField = true;
-  }
+  // if (form.fourInput.value.length < 6) {
+  //   object.passField = false;
+  // } else {
+  //   object.passField = true;
+  // }
+  //
+  // if (lower.test(form.fourInput.value) === false) {
+  //   object.passField = false;
+  //   console.log('===>1 lower');
+  // } else {
+  //   object.passField = true;
+  // }
+  //
+  // if (upper.test(form.fourInput.value) === false) {
+  //   object.passField = false;
+  //   console.log('===>1 upper');
+  // } else {
+  //   object.passField = true;
+  // }
+  //
+  // if (num.test(form.fourInput.value) === false) {
+  //   object.passField = false;
+  //   console.log('===>1 num');
+  // } else {
+  //   object.emailField = true;
+  // }
 
   // if (symbol.test(form.fourInput.value) === false) {
   //   object.passField = false;

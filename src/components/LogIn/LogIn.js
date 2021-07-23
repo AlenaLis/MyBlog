@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Link, Redirect} from "react-router-dom";
-
-import {users} from "../../assets/Services/users";
-
 import "./LogIn.scss"
 import userValid from "../../assets/Services/userValid";
 
@@ -20,18 +17,16 @@ const LogIn = () => {
   })
 
   const [allPersons, setAllPersons] = useState(false)
-  console.log('===>allPersons', allPersons);
   const isPerson = localStorage.getItem('users')
   useEffect(() => {
 
     if (!isPerson) {
-      localStorage.setItem('users', JSON.stringify(users))
+      localStorage.setItem('users', JSON.stringify([]))
     }
   }, [])
 
   const checkPerson = () => {
     setAllPersons(userValid(person))
-
   }
 
   const handleChange = (e, key) => {
@@ -47,7 +42,7 @@ const LogIn = () => {
 
 if(allPersons === true ){
 
-  localStorage.setItem('isLogin', JSON.stringify('true'))
+  localStorage.setItem('isLogin', JSON.stringify(true))
 }
   return (
     <div>

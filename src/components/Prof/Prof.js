@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Prof.scss";
 import prof from "../../assets/images/prof_photo.png";
-import {users} from "../../assets/Services/users";
+
 
 const Prof = (form) => {
 
@@ -62,7 +62,7 @@ const Prof = (form) => {
                   onChange={
                     (e) => handleChange(e, 'photo')
                   }
-                />
+                 alt={'photo'}/>
 
               </div>
               <div>

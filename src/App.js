@@ -1,19 +1,29 @@
 import './App.scss';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {routes} from "./routes/routes";
-import {blogs} from "./assets/Services/mock";
 
 const App = () => {
+
+  const [isAuth, setIsAuth] = useState(false)
+  const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')));
+
+  if (!isLogin) {
+    localStorage.setItem('isLogin', JSON.stringify(false));
+  }
+  console.log('===>123', 123);
+  const changeIsAuth = () => {
+    setIsAuth(!isAuth)
+  }
 
   return (
     <BrowserRouter>
       <div className="App">
         <div className="wrapper">
           <div className="wrapper__header">
-            <Header/>
+            <Header changeIsAuth={changeIsAuth}/>
           </div>
           <Switch>
             <div className="wrapper__all">
