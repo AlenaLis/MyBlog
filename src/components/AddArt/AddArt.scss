@@ -1,0 +1,104 @@
+.addArt__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .h2__text {
+    margin-top: 80px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 56px;
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .valid__form {
+    margin-top:100px;
+    .text {
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 16px;
+      color: #242424;
+    }
+    input[type="text"] {
+      border: 1px solid #E1E1E1;
+
+    }
+    .input {
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      width: 1070px;
+      height: 48px;
+      text-indent: 16px;
+  margin-left: 10px;
+
+
+    }
+
+
+    .input__text {
+      font-family: 'IBM Plex Sans', sans-serif;
+      width: 1070px;
+      height: 289px;
+      text-indent: 16px;
+      border: 1px solid #E1E1E1;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 14px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      color: #242424;
+    }
+  }
+
+  .valid__bottom {
+
+    .button__valid {
+      margin: 48px 0px 15px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 15px;
+      background: #242424;
+      width: 399px;
+      height: 55px;
+      color: #FFFFFF;
+      border: 1px solid #242424;
+      margin-bottom: 110px;
+    }
+  }
+  .editor{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    height: 335px;
+    border: 1px solid #E1E1E1;
+    margin-bottom: 100px;
+    margin-left: 10px;
+    width: 1070px;
+    height: fit-content;
+    .toolbarClassName{
+      position: relative;
+
+      top: -262px;
+      justify-content: center;
+      width: 1070px;
+    }
+    .wrapperClassName{
+
+    }
+    .editorClassName{
+      position: relative;
+      top:-100px;
+     padding: 10px;
+      height: fit-content;
+    }
+  }
+}
