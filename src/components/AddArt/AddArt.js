@@ -13,8 +13,10 @@ const AddArt = () => {
     category: '',
     description: EditorState.createEmpty(),
     date: Date.now(),
+    date2:'',
   })
-
+let newDate = dataForm.date;
+  newDate =  new Date().toLocaleDateString();
   const changeDataInput = (e, key) => {
     let dataText =  draftToHtml(convertToRaw(dataForm.description.getCurrentContent()))
     if (key === 'description') {
@@ -22,6 +24,7 @@ const AddArt = () => {
         ...prevState,
         [key]: e,
         titleForShow: dataText,
+        data2: newDate,
       }))
     } else {
       const {value} = e.target
@@ -29,6 +32,7 @@ const AddArt = () => {
         ...prevState,
         [key]: value,
         titleForShow: dataText,
+        data2: newDate,
       }))
     }
 

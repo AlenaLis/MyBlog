@@ -38,7 +38,7 @@ const Prof = (form) => {
 
   const lastArray = JSON.parse(localStorage.getItem("users"));
   const newArray = lastArray[0];
-
+console.log('fwefwefwef', lastArray[0])
   const addNewInfo = () => {
     if (newArray && newArray.length > 0) {
       localStorage.setItem('local', JSON.stringify(newArray))
@@ -47,6 +47,7 @@ const Prof = (form) => {
       localStorage.setItem('users', JSON.stringify([local]))
     }
   }
+
   return (
     <div>
       <div className="prof__content">
@@ -115,7 +116,7 @@ const Prof = (form) => {
                 <td align="right" valign="top">
                   <input
                     value={local.description.value}
-                    placeholder={lastArray[0].description.value}
+
                     onChange={
                       (e) => handleChange(e, 'description')
                     }

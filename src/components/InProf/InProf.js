@@ -19,9 +19,6 @@ const InProf = () => {
 
 
   const myArticle = JSON.parse(localStorage.getItem("art"));
- let getDate = myArticle.dataForShow;
-console.log('===>getDate', getDate);
-console.log('===>myArticle', myArticle);
 
   return (
     <div>
@@ -67,7 +64,7 @@ console.log('===>myArticle', myArticle);
                         </div>
                       </div>
                       <div>
-                        <p className="p__human__second">{el.date}</p>
+                        <p className="p__human__second">{el.data2}</p>
                       </div>
                       <div className="main__panel__bottom__human__second">
                         <div>
