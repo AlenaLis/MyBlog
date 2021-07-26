@@ -6,11 +6,11 @@ import userValid from "../../assets/Services/userValid";
 const LogIn = () => {
 
   const [person, setPerson] = useState({
-    firstInput: {
+    inputForEmail: {
       value: '',
       type: '',
     },
-    secondInput: {
+    inputForPassword: {
       value: '',
       type: '',
     },
@@ -55,9 +55,9 @@ if(allPersons === true ){
             <p>Email Address</p>
             <input
               className="input"
-              value={person.firstInput.value}
+              value={person.inputForEmail.value}
               onChange={
-                (e) => handleChange(e, 'firstInput')
+                (e) => handleChange(e, 'inputForEmail')
               }
               id="firstname"
               type="text"
@@ -66,9 +66,9 @@ if(allPersons === true ){
             <p>Password</p>
             <input
               className="input"
-              value={person.secondInput.value}
+              value={person.inputForPassword.value}
               onChange={
-                (e) => handleChange(e, 'secondInput')
+                (e) => handleChange(e, 'inputForPassword')
               }
               id="pass"
               type="password"
@@ -79,7 +79,7 @@ if(allPersons === true ){
         <div className="valid__bottom">
           <div>
             <button className="button__valid" onClick={checkPerson}>
-              Create Account
+              Log in
             </button>
           </div>
           <div>

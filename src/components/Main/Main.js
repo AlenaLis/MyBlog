@@ -6,6 +6,9 @@ import {blogs} from "../../assets/Services/mock";
 import eyeicon from '../../assets/images/eye icon.png';
 import mainpic from '../../assets/images/pictureMain1.png';
 import mainhuman from '../../assets/images/human.png';
+import human1 from "../../assets/images/human.png";
+import eye from "../../assets/images/eye icon.png";
+import art from "../../assets/images/art4.png";
 import "./Main.scss";
 
 const Main = () => {
@@ -21,9 +24,21 @@ const Main = () => {
       setAllBlogs(JSON.parse(localStorage.getItem('blogs')))
     }
   }, [])
-
+  const myArticle = JSON.parse(localStorage.getItem("art"));
+  const [allArts, setAllArts] = useState([])
+  useEffect(() => {
+    if (!myArticle) {
+      localStorage.setItem('art', JSON.stringify([]))
+      setAllArts('art')
+    } else {
+      setAllArts(JSON.parse(localStorage.getItem('art')))
+    }
+  }, [])
+  const myUser = JSON.parse(localStorage.getItem("users"));
+  console.log('===>myArticle', myArticle);
   return (
     <div>
+
       <div className="main">
         <div className="main__top">
           <div>
@@ -60,7 +75,7 @@ const Main = () => {
               </div>
               <div className="main__panel__bottom__human__second">
                 <div>
-                  <img src={eyeicon}/>
+                  <img src={eye}/>
                 </div>
                 <div>
                   <p className="p__human__second">1690</p>
@@ -73,54 +88,57 @@ const Main = () => {
           <div>
             <h1 className="h1__main">Popular articles</h1>
           </div>
-          {allBlogs?.map((blog) => (
+          {myArticle?.map((el) => (
             <div className="main__bottom__art">
               <div className="main__bottom__new">
                 <div>
-                  <img src={blog.img_art}/>
+                  <img src={art}/>
                 </div>
-
-                <div className="main__panel__bottom__art">
-                  <div>
-                    <button>{blog.link}</button>
+                  <div className="main__panel__bottom__art">
+                    <div>
+                      <button>{el.category}</button>
+                    </div>
+                    <div>
+                      <h2 className="h2__text">
+                        <Link to={`/fullart/${el.id}/`} path="/fullart/:id/"
+                              style={{textDecoration: 'none', color: '#242424'}}>{el.title}</Link>
+                      </h2>
+                      <p className="p__text">
+                        <div dangerouslySetInnerHTML={{__html: el.titleForShow}} className="p__text"/>
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h2 className="h2__text">
-                      <Link to={`/art/${blog.id}/`} path="/posts/:id" style={{ textDecoration: 'none', color:'#242424'}}>{blog.title}</Link>
-                    </h2>
-                    <p className="p__text">
-                      {blog.text}
-                    </p>
-                  </div>
-
                   <div className="main__panel__bottom">
                     <div className="main__panel__bottom__human">
                       <div>
-                        <img src={blog.img_human}/>
+                        <img src={human1}/>
                       </div>
                       <div>
                         <p className="p__human">
-                          {blog.name}
+                          {myUser[0].firstName ?
+                            myUser[0].firstName.value + ' ' + myUser[0].secondName.value
+                            :
+                            myUser[0].firstNameInput.value + ' ' + myUser[0].secondNameInput.value}
                         </p>
                       </div>
-                    </div>
-                    <div>
-                      <p className="p__human__second">
-                        {blog.date}
-                      </p>
-                    </div>
-                    <div className="main__panel__bottom__human__second">
-                      <div>
-                        <img src={blog.eye}/>
-                      </div>
+
                       <div>
                         <p className="p__human__second">
-                          {blog.count_eye}
+                          {el.data2}
                         </p>
+                      </div>
+                      <div className="main__panel__bottom__human__second">
+                        <div>
+                          <img src={eye}/>
+                        </div>
+                        <div>
+                          <p className="p__human__second">
+                            {el.watches}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           ))}
@@ -133,6 +151,7 @@ const Main = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

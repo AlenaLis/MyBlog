@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import "./Prof.scss";
+import "./ProfileInfo.scss";
 import prof from "../../assets/images/prof_photo.png";
+import {Redirect} from "react-router-dom";
 
-
-const Prof = (form) => {
+const ProfileInfo = (form) => {
 
   const [local, setLocal] = useState({
     firstName: {
@@ -24,7 +24,7 @@ const Prof = (form) => {
 
     },
   })
-
+  const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
   const handleChange = (e, key) => {
     const {value, type} = e.target
     setLocal((prevState) => ({
@@ -47,6 +47,7 @@ const Prof = (form) => {
       localStorage.setItem('users', JSON.stringify([local]))
     }
   }
+
   return (
     <div>
       <div className="prof__content">
@@ -58,22 +59,13 @@ const Prof = (form) => {
             <span className="line">
               <div>
                 <img
-                  src={local.photo.value}
-                  onChange={
-                    (e) => handleChange(e, 'photo')
-                  }
-                 alt={'photo'}/>
-
+                  src={prof}
+                  alt={'photo'}/>
               </div>
               <div>
-                <input
-                  onChange={
-                    (e) => handleChange(e, 'photo')
-                  }
-                  className="photo"
-                  type="file"
-                  value={local.photo.value}
-                />
+                <button className='photo'>
+                  Change photo
+                </button>
               </div>
               <div>
                 <p>Delete photo</p>
@@ -90,7 +82,7 @@ const Prof = (form) => {
                       (e) => handleChange(e, 'firstName')
                     }
                     value={local.firstName.value}
-                    placeholder={lastArray[0].firstName.value}
+                    placeholder={lastArray[0].firstName ? lastArray[0].firstName.value : lastArray[0].firstNameInput.value}
                     className="input"
                     type="text"
                     name="fname"
@@ -103,7 +95,7 @@ const Prof = (form) => {
                       (e) => handleChange(e, 'secondName')
                     }
                     value={local.secondName.value}
-                    placeholder={lastArray[0].secondName.value}
+                    placeholder={lastArray[0].secondName ? lastArray[0].secondName.value : lastArray[0].secondNameInput.value}
                     className="input"
                     type="text"
                     name="lname"
@@ -115,7 +107,7 @@ const Prof = (form) => {
                 <td align="right" valign="top">
                   <input
                     value={local.description.value}
-                    placeholder={lastArray[0].description.value}
+                    placeholder={lastArray[0].description ? lastArray[0].description.value : 'Please enter your description'}
                     onChange={
                       (e) => handleChange(e, 'description')
                     }
@@ -134,8 +126,9 @@ const Prof = (form) => {
           </div>
         </div>
       </div>
+      {!isLogin && <Redirect to="/"/>}
     </div>
   );
 }
 
-export default Prof;
+export default ProfileInfo;

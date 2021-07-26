@@ -13,7 +13,7 @@ const App = () => {
   if (!isLogin) {
     localStorage.setItem('isLogin', JSON.stringify(false));
   }
-  console.log('===>123', 123);
+
   const changeIsAuth = () => {
     setIsAuth(!isAuth)
   }

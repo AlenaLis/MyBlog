@@ -6,19 +6,19 @@ import validation from "../../assets/Services/validation";
 const SignIn = () => {
 
   const [form, setForm] = useState({
-    firstInput: {
+    firstNameInput: {
       value: '',
       type: '',
     },
-    secondInput: {
+    secondNameInput: {
       value: '',
       type: '',
     },
-    thirdInput: {
+    emailInput: {
       value: '',
       type: '',
     },
-    fourInput: {
+    passwordInput: {
       value: '',
       type: '',
     },
@@ -44,7 +44,7 @@ const SignIn = () => {
   const checkValid = () => {
 
     const  tempValid = validation(form)
-    //setIsValid(Validation(form))
+
     setValid(tempValid)
     const lastArray = JSON.parse(localStorage.getItem("users"));
     if (tempValid) {
@@ -68,9 +68,9 @@ const SignIn = () => {
                     <form className="valid__form">
                         <p>First name</p>
                       <input
-                        value={form.firstInput.value}
+                        value={form.firstNameInput.value}
                         onChange={
-                          (e) => handleChange(e, 'firstInput')
+                          (e) => handleChange(e, 'firstNameInput')
                         }
                         className={valid.firstField  ? 'input': 'input error-input'}
                         id="firstname"
@@ -82,9 +82,9 @@ const SignIn = () => {
                       </p>}
                         <p>Last name</p>
                       <input
-                        value={form.secondInput.value}
+                        value={form.secondNameInput.value}
                         onChange={
-                          (e) => handleChange(e, 'secondInput')
+                          (e) => handleChange(e, 'secondNameInput')
                         }
                         className={valid.lastField  ? 'input': 'input error-input'}
                         id="lastname"
@@ -96,9 +96,9 @@ const SignIn = () => {
                       </p>}
                        <p>Email Address</p>
                       <input
-                        value={form.thirdInput.value}
+                        value={form.emailInput.value}
                         onChange={
-                          (e) => handleChange(e, 'thirdInput')
+                          (e) => handleChange(e, 'emailInput')
                         }
                         className={valid.emailField  ? 'input': 'input error-input'}
                         id="email"
@@ -110,9 +110,9 @@ const SignIn = () => {
                       </p>}
                       <p>Password</p>
                       <input
-                        value={form.fourInput.value}
+                        value={form.passwordInput.value}
                         onChange={
-                          (e) => handleChange(e, 'fourInput')
+                          (e) => handleChange(e, 'passwordInput')
                         }
                         className={valid.passField  ? 'input': 'input error-input'}
                         id="pass"

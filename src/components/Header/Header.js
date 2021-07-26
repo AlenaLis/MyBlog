@@ -7,14 +7,6 @@ import logo from '../../assets/images/Logo.png';
 const Header = () => {
 
 
-  // if (!localStorage.getItem('isLogin')) {
-  //   localStorage.setItem('isLogin', 'false');
-  //
-  // } else {
-  //         localStorage.setItem('isLogin', 'true');
-  //       }
-
-
   const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
   return (
     <div>
@@ -44,16 +36,16 @@ const Header = () => {
                 )
                 : <div className="link">
                   <p>
-                    <Link to='/'>All articles</Link>
+                    <Link to='/'style={{ textDecoration: 'none', color:'#242424'}}>All articles</Link>
                   </p>
                   <p>
-                    <Link to='/inprof/'>My articles</Link>
+                    <Link to='/inprof/'style={{ textDecoration: 'none', color:'#242424'}}>My articles</Link>
                   </p>
                   <p>
-                    <Link to='/addarticle/'>Add article</Link>
+                    <Link to='/addarticle/'style={{ textDecoration: 'none', color:'#242424'}}>Add article</Link>
                   </p>
                   <p>
-                    <Link to='/profile/'>Profile</Link>
+                    <Link to='/profile/'style={{ textDecoration: 'none', color:'#242424'}}>Profile</Link>
                   </p>
 
                   <div>
