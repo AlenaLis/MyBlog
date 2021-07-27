@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Link, Redirect} from "react-router-dom";
-import "./LogIn.scss"
+
 import userValid from "../../assets/Services/userValid";
+
+import "./LogIn.scss"
 
 const LogIn = () => {
 
@@ -18,6 +20,7 @@ const LogIn = () => {
 
   const [allPersons, setAllPersons] = useState(false)
   const isPerson = localStorage.getItem('users')
+
   useEffect(() => {
 
     if (!isPerson) {
@@ -25,8 +28,13 @@ const LogIn = () => {
     }
   }, [])
 
-  const checkPerson = () => {
+  const setPersons = () => {
     setAllPersons(userValid(person))
+  }
+
+  const checkPerson = async () => {
+    await setPersons()
+    window.location.reload();
   }
 
   const handleChange = (e, key) => {
@@ -40,10 +48,10 @@ const LogIn = () => {
     }))
   }
 
-if(allPersons === true ){
+  if (allPersons === true) {
+    localStorage.setItem('isLogin', JSON.stringify(true))
+  }
 
-  localStorage.setItem('isLogin', JSON.stringify(true))
-}
   return (
     <div>
       <div className="valid__content">
@@ -78,7 +86,10 @@ if(allPersons === true ){
         </div>
         <div className="valid__bottom">
           <div>
-            <button className="button__valid" onClick={checkPerson}>
+            <button
+              className="button__valid"
+              onClick={checkPerson}
+            >
               Log in
             </button>
           </div>

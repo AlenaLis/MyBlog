@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Editor} from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "./AddArt.scss"
-import draftToHtml from 'draftjs-to-html';
 import {EditorState, convertToRaw} from "draft-js";
 import {Redirect} from "react-router-dom";
 import {Link} from "react-router-dom";
+
+import draftToHtml from 'draftjs-to-html';
+
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "./AddArt.scss"
 
 const AddArt = () => {
 
@@ -16,35 +18,40 @@ const AddArt = () => {
     description: EditorState.createEmpty(),
     date: Date.now(),
     date2: '',
-    id:'',
-    watches: '',
+    id: '',
+    watches: '12',
+    image: '',
   })
-  let newDate = dataForm.date;
 
+  let newDate = dataForm.date;
   newDate = new Date().toLocaleDateString();
 
   const changeDataInput = (e, key) => {
     let dataText = draftToHtml(convertToRaw(dataForm.description.getCurrentContent()))
+
     if (key === 'description') {
       setDataForm((prevState) => ({
         ...prevState,
         [key]: e,
         titleForShow: dataText,
         data2: newDate,
-        id:Date.now(),
+        id: Date.now(),
+        image: '',
       }))
     } else {
       const {value} = e.target
+
       setDataForm((prevState) => ({
         ...prevState,
         [key]: value,
         titleForShow: dataText,
         data2: newDate,
-        id:Date.now(),
+        id: Date.now(),
+        image: '',
       }))
     }
-
   }
+
   const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
   const lastArt = JSON.parse(localStorage.getItem("art"));
 
@@ -72,12 +79,13 @@ const AddArt = () => {
             />
           </div>
           <div>
-            <input className="input" onChange={
-              (e) => {
+            <input
+              className="input"
+              onChange={(e) => {
                 changeDataInput(e, 'category')
-              }
-            } type="text"
-                   value={dataForm.category}
+              }}
+              type="text"
+              value={dataForm.category}
             />
           </div>
         </div>
@@ -96,12 +104,19 @@ const AddArt = () => {
         <div className="valid__bottom">
           <Link to="/inprof/">
             <button
-              className='button__valid'
+              className='button__publish'
               onClick={createNewArt}
             >
-              Create new article
+              Publish an article
             </button>
           </Link>
+
+          <button
+            className='button__create_image'
+            onClick={createNewArt}
+          >
+            Publish an article
+          </button>
         </div>
       </div>
       {!isLogin && <Redirect to="/"/>}

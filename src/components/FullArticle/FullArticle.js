@@ -1,23 +1,28 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
+
+import {Link, useParams} from 'react-router-dom';
+
 import img_human from "../../assets/images/human.png"
 import eye from "../../assets/images/eye icon.png"
-import {Link, useParams} from 'react-router-dom';
 
 import "./FullArticle.scss";
 
 const FullArticle = () => {
 
   let {id} = useParams();
-  const myArticle = JSON.parse(localStorage.getItem("art"));
 
+  const myArticle = JSON.parse(localStorage.getItem("art"));
   const oneArt = myArticle?.filter((myArticle => myArticle.id === +id))[0]
   const user = JSON.parse(localStorage.getItem("users"));
-  console.log('===>user', user[0].firstNameInput);
+
   return (
     <div>
       <div className="Art__container">
         <button className="button">
-          <Link to='/inprof/' style={{textDecoration: 'none', color: '#8C8C8C'}}>
+          <Link
+            to='/inprof/'
+            style={{textDecoration: 'none', color: '#8C8C8C'}}
+          >
             My profile
           </Link>
         </button>
@@ -36,13 +41,14 @@ const FullArticle = () => {
                 <div className="main__panel__bottom__art">
                   <div>
                     <p className="p__text">
-                      <div dangerouslySetInnerHTML={{__html: oneArt.titleForShow}} className="p__text"/>
+                      <div
+                        dangerouslySetInnerHTML={{__html: oneArt.titleForShow}}
+                        className="p__text"
+                      />
                     </p>
                   </div>
                   <div className="state">
-
                   </div>
-
                   <div className="main__panel__bottom">
                     <div className="hum_cont">
                       <div className="main__panel__bottom__human">
@@ -50,7 +56,9 @@ const FullArticle = () => {
                           <img src={img_human}/>
                         </div>
                         <div>
-                          <p className="p__human">{user[0].firstNameInput.value + ' ' + user[0].secondNameInput.value}</p>
+                          <p className="p__human">
+                            {user[0].firstNameInput.value + ' ' + user[0].secondNameInput.value}
+                          </p>
                         </div>
                       </div>
                       <div>
@@ -70,10 +78,7 @@ const FullArticle = () => {
                     </div>
                   </div>
                 </div>
-
-
               </div>
-
             </div>
           </div>
         </div>

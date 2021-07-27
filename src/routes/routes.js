@@ -1,4 +1,3 @@
-import Article from "../components/Artickle/Artickle";
 import Main from "../components/Main/Main";
 import ProfileInfo from "../components/ProfileInfo/ProfileInfo";
 import AddArt from "../components/AddArt/AddArt";
@@ -36,11 +35,6 @@ export const routes = [
   {
     path: '/singin/',
     component: LogIn,
-    exact: true,
-  },
-  {
-    path: '/art/:id/',
-    component: Article,
     exact: true,
   },
   {

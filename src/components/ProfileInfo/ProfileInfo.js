@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import "./ProfileInfo.scss";
-import prof from "../../assets/images/prof_photo.png";
 import {Redirect} from "react-router-dom";
 
-const ProfileInfo = (form) => {
+import prof from "../../assets/images/prof_photo.png";
+import "./ProfileInfo.scss";
+
+const ProfileInfo = () => {
 
   const [local, setLocal] = useState({
     firstName: {
@@ -24,7 +25,9 @@ const ProfileInfo = (form) => {
 
     },
   })
+
   const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
+
   const handleChange = (e, key) => {
     const {value, type} = e.target
     setLocal((prevState) => ({
@@ -42,7 +45,6 @@ const ProfileInfo = (form) => {
   const addNewInfo = () => {
     if (newArray && newArray.length > 0) {
       localStorage.setItem('local', JSON.stringify(newArray))
-
     } else {
       localStorage.setItem('users', JSON.stringify([local]))
     }
@@ -82,7 +84,10 @@ const ProfileInfo = (form) => {
                       (e) => handleChange(e, 'firstName')
                     }
                     value={local.firstName.value}
-                    placeholder={lastArray[0].firstName ? lastArray[0].firstName.value : lastArray[0].firstNameInput.value}
+                    placeholder={lastArray[0].firstName ?
+                      lastArray[0].firstName.value
+                      :
+                      lastArray[0].firstNameInput.value}
                     className="input"
                     type="text"
                     name="fname"
@@ -95,7 +100,10 @@ const ProfileInfo = (form) => {
                       (e) => handleChange(e, 'secondName')
                     }
                     value={local.secondName.value}
-                    placeholder={lastArray[0].secondName ? lastArray[0].secondName.value : lastArray[0].secondNameInput.value}
+                    placeholder={lastArray[0].secondName ?
+                      lastArray[0].secondName.value
+                      :
+                      lastArray[0].secondNameInput.value}
                     className="input"
                     type="text"
                     name="lname"

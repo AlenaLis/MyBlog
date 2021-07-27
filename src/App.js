@@ -1,9 +1,10 @@
-import './App.scss';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {routes} from "./routes/routes";
+
+import './App.scss';
 
 const App = () => {
 

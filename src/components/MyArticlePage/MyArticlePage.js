@@ -1,28 +1,21 @@
-import "./MyArticlePage.scss";
-import human1 from "../../assets/images/human.png";
-import eye from "../../assets/images/eye icon.png";
+import {Link, Redirect, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-
+import human1 from "../../assets/images/human.png";
+import eye from "../../assets/images/eye icon.png";
 import prof from "../../assets/images/prof_photo.png";
-import {Link, Redirect, useParams} from "react-router-dom";
 
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "./MyArticlePage.scss";
 
 const MyArticlePage = () => {
 
   const myArticle = JSON.parse(localStorage.getItem("art"));
   const myUser = JSON.parse(localStorage.getItem("users"));
-  const isArts = JSON.parse(localStorage.getItem('art'));
-  let {title} = useParams();
-  const [allArts, setAllArts] = useState([])
 
   useEffect(() => {
     if (!myArticle) {
       localStorage.setItem('art', JSON.stringify([]))
-      setAllArts('art')
-    } else {
-      setAllArts(JSON.parse(localStorage.getItem('art')))
     }
   }, [])
   const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
@@ -53,7 +46,6 @@ const MyArticlePage = () => {
               ))}
             </div>
             <div className="coloum__content">
-
               {myArticle?.map((el) => (
                 <div className="prof__cont__art">
                   <div className="main__bottom__art">
@@ -77,7 +69,6 @@ const MyArticlePage = () => {
                               <div>
                                 <img src={human1} alt='profile photo'/>
                               </div>
-
                               <div>
                                 <p className="p__human">
                                   {myUser[0].firstName ?
@@ -133,12 +124,14 @@ const MyArticlePage = () => {
             ))}
           </div>
           <div className="but">
-            <Link to="/addarticle/"><button>Add new article</button></Link>
+            <Link to="/addarticle/">
+              <button>Add new article</button>
+            </Link>
           </div>
         </div>
       }
-        </div>
-        );
-        }
+    </div>
+  );
+}
 
-        export default MyArticlePage;
+export default MyArticlePage;
