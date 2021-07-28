@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 
-import validation from "../../assets/Services/validation";
+import validation from '../../assets/Services/validation';
 
-import "./SignIn.scss"
+import './SignIn.scss'
 
 const SignIn = () => {
 
@@ -23,14 +23,14 @@ const SignIn = () => {
       value: '',
       type: '',
     },
-  })
+  });
 
   const [valid, setValid] = useState({
-    firstField: true,
-    lastField: true,
+    firstNameField: true,
+    lastNameField: true,
     emailField: true,
     passField: true,
-  })
+  });
 
   const handleChange = (e, key) => {
     const {value, type} = e.target
@@ -41,16 +41,15 @@ const SignIn = () => {
         type,
       },
     }))
-  }
+  };
 
   const checkValid = () => {
 
-    const tempValid = validation(form)
-    setValid(tempValid)
+    const {object, isValid} = validation(form);
+    setValid(object)
     const lastArray = JSON.parse(localStorage.getItem("users"));
 
-    if (tempValid) {
-
+    if (isValid) {
       if (lastArray && lastArray.length > 0) {
         localStorage.setItem('form', JSON.stringify(form))
         lastArray.push(form);
@@ -58,9 +57,8 @@ const SignIn = () => {
       } else {
         localStorage.setItem('users', JSON.stringify([form]))
       }
-
     }
-  }
+  };
 
   return (
     <div>
@@ -73,64 +71,82 @@ const SignIn = () => {
             <p>First name</p>
             <input
               value={form.firstNameInput.value}
-              onChange={
-                (e) => handleChange(e, 'firstNameInput')
-              }
-              className={valid.firstField ? 'input' : 'input error-input'}
-              id="firstname"
+              onChange={(e) => {
+                handleChange(e, 'firstNameInput')
+              }}
+              className={valid.firstNameField ? 'input' : 'input error-input'}
               type="text"
-              name="firstname"
             />
-            {!valid.firstField && <p className="validation">
+            {!valid.firstNameField &&
+            <p className="validation">
               Please enter other variant of the first name.
-            </p>}
+            </p>
+            }
             <p>Last name</p>
             <input
               value={form.secondNameInput.value}
               onChange={
-                (e) => handleChange(e, 'secondNameInput')
-              }
-              className={valid.lastField ? 'input' : 'input error-input'}
-              id="lastname"
+                (e) => {
+                  handleChange(e, 'secondNameInput')
+                }}
+              className={valid.lastNameField ?
+                'input'
+                :
+                'input error-input'}
               type="text"
-              name="lastname"
             />
-            {!valid.lastField && <p className="validation">
+            {!valid.lastNameField &&
+            <p className="validation">
               Please enter other variant of the second name.
-            </p>}
+            </p>
+            }
             <p>Email Address</p>
             <input
               value={form.emailInput.value}
               onChange={
-                (e) => handleChange(e, 'emailInput')
-              }
-              className={valid.emailField ? 'input' : 'input error-input'}
-              id="email"
+                (e) => {
+                  handleChange(e, 'emailInput')
+                }}
+              className={valid.emailField ?
+                'input'
+                :
+                'input error-input'}
               type="text"
-              name="email"
             />
-            {!valid.emailField && <p className="validation">
+            {!valid.emailField &&
+            <p className="validation">
               Please enter other variant of the email.
-            </p>}
+            </p>
+            }
             <p>Password</p>
             <input
               value={form.passwordInput.value}
               onChange={
-                (e) => handleChange(e, 'passwordInput')
-              }
-              className={valid.passField ? 'input' : 'input error-input'}
-              id="pass"
+                (e) => {
+                  handleChange(e, 'passwordInput')
+                }}
+              className={valid.passField ?
+                'input'
+                :
+                'input error-input'}
               type="password"
-              name="pass"
             />
-            {!valid.passField && <p className="validation">
+            {!valid.passField &&
+            <p className="validation">
               Please enter other variant of the password.
-            </p>}
+            </p>
+            }
           </form>
         </div>
         <div className="valid__bottom">
           <div className="marg">
-            <button className="button__valid" id="button" onClick={checkValid}>Create Account</button>
+            <button
+              className="button__valid"
+              id="button"
+              onClick={checkValid}
+            >
+              Create Account
+            </button>
           </div>
         </div>
       </div>

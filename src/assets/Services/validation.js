@@ -1,14 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const validation = (form) => {
 
   let object = {
-    firstField: true,
-    lastField: true,
-    emailField: true,
-    passField: true,
+    firstNameField: false,
+    lastNameField: false,
+    emailField: false,
+    passField: false,
   };
-
 
   const regular = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   const english = /[a-zA-Z]/;
@@ -18,70 +17,28 @@ const validation = (form) => {
   const symbol = /(?=.*?[#?!@$%^&*-])/;
 
   if (form.firstNameInput.value.length < 6) {
-    object.firstField = false;
+    object.firstNameField = false;
   } else {
-    object.firstField = true;
+    if (!english.test(form.firstNameInput.value)) {
+      object.firstNameField = false;
+    }
+    object.firstNameField = true;
   }
 
-  if (english.test(form.firstNameInput.value) === false) {
-    object.firstField = false;
-  } else {
-    object.firstField = true;
-  }
+  object.lastNameField = form.secondNameInput.value.length >= 6;
 
-  if (form.secondNameInput.value.length < 6) {
-    object.lastField = false;
+  object.emailField = form.emailInput.value.length >= 6 && regular.test(form.emailInput.value);
 
-  } else {
-    object.lastField = true;
-  }
+  object.passField = form.passwordInput.value.length >= 6
+    && lower.test(form.passwordInput.value)
+    && upper.test(form.passwordInput.value)
+    && num.test(form.passwordInput.value)
+    && symbol.test(form.passwordInput.value);
 
-  if (form.emailInput.value.length < 6) {
-    object.emailField = false;
-  } else {
-    object.emailField = true;
-  }
+  let isValid = object.firstNameField && object.lastNameField && object.passField && object.emailField;
 
-  if (regular.test(form.emailInput.value) === false) {
-    object.emailField = false;
-  } else {
-    object.emailField = true;
-  }
+  return ({object, isValid});
 
-  if (form.passwordInput.value.length < 6) {
-    object.passField = false;
-  } else {
-    object.passField = true;
-  }
-
-  if (lower.test(form.passwordInput.value) === false) {
-    object.passField = false;
-    console.log('===>1 lower');
-  } else {
-    object.passField = true;
-  }
-
-  if (upper.test(form.passwordInput.value) === false) {
-    object.passField = false;
-    console.log('===>1 upper');
-  } else {
-    object.passField = true;
-  }
-
-  if (num.test(form.passwordInput.value) === false) {
-    object.passField = false;
-    console.log('===>1 num');
-  } else {
-    object.emailField = true;
-  }
-
-  // if (symbol.test(form.fourInput.value) === false) {
-  //   object.passField = false;
-  //   console.log('===>1 sym');
-  // } else {
-  //   object.passField = true;
-  // }
-  return (object);
 }
 
 export default validation;

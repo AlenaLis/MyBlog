@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {Link, Redirect} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {Link, Redirect} from 'react-router-dom';
 
-import userValid from "../../assets/Services/userValid";
+import userValid from '../../assets/Services/userValid';
 
-import "./LogIn.scss"
+import './LogIn.scss';
 
 const LogIn = () => {
 
@@ -16,13 +16,12 @@ const LogIn = () => {
       value: '',
       type: '',
     },
-  })
+  });
 
-  const [allPersons, setAllPersons] = useState(false)
-  const isPerson = localStorage.getItem('users')
+  const [allPersons, setAllPersons] = useState(false);
+  const isPerson = localStorage.getItem('users');
 
   useEffect(() => {
-
     if (!isPerson) {
       localStorage.setItem('users', JSON.stringify([]))
     }
@@ -30,12 +29,12 @@ const LogIn = () => {
 
   const setPersons = () => {
     setAllPersons(userValid(person))
-  }
+  };
 
   const checkPerson = async () => {
     await setPersons()
     window.location.reload();
-  }
+  };
 
   const handleChange = (e, key) => {
     const {value, type} = e.target
@@ -46,7 +45,7 @@ const LogIn = () => {
         type,
       },
     }))
-  }
+  };
 
   if (allPersons === true) {
     localStorage.setItem('isLogin', JSON.stringify(true))
@@ -65,22 +64,20 @@ const LogIn = () => {
               className="input"
               value={person.inputForEmail.value}
               onChange={
-                (e) => handleChange(e, 'inputForEmail')
-              }
-              id="firstname"
+                (e) => {
+                  handleChange(e, 'inputForEmail')
+                }}
               type="text"
-              name="email"
             />
             <p>Password</p>
             <input
               className="input"
               value={person.inputForPassword.value}
               onChange={
-                (e) => handleChange(e, 'inputForPassword')
-              }
-              id="pass"
+                (e) => {
+                  handleChange(e, 'inputForPassword')
+                }}
               type="password"
-              name="pass"
             />
           </form>
         </div>
@@ -95,10 +92,7 @@ const LogIn = () => {
           </div>
           <div>
             <p> Don’t have a Times account?
-              <Link
-                to='/login/'
-                style={{textDecoration: 'none', color: '#000'}}
-              >
+              <Link to='/login/'>
                 Create one
               </Link>
             </p>
@@ -109,4 +103,5 @@ const LogIn = () => {
     </div>
   );
 }
+
 export default LogIn;

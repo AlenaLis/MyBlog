@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from "react";
-import {Editor} from "react-draft-wysiwyg";
-import {EditorState, convertToRaw} from "draft-js";
-import {Redirect} from "react-router-dom";
-import {Link} from "react-router-dom";
-
+import React, {useState} from 'react';
+import {Editor} from 'react-draft-wysiwyg';
+import {EditorState, convertToRaw} from 'draft-js';
+import {Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import draftToHtml from 'draftjs-to-html';
 
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "./AddArt.scss"
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import './AddArt.scss';
 
 const AddArt = () => {
 
@@ -19,16 +18,16 @@ const AddArt = () => {
     date: Date.now(),
     date2: '',
     id: '',
-    watches: '12',
+    watches: '14',
     image: '',
-  })
+  });
 
   let newDate = dataForm.date;
   newDate = new Date().toLocaleDateString();
 
   const changeDataInput = (e, key) => {
-    let dataText = draftToHtml(convertToRaw(dataForm.description.getCurrentContent()))
 
+    let dataText = draftToHtml(convertToRaw(dataForm.description.getCurrentContent()));
     if (key === 'description') {
       setDataForm((prevState) => ({
         ...prevState,
@@ -40,7 +39,6 @@ const AddArt = () => {
       }))
     } else {
       const {value} = e.target
-
       setDataForm((prevState) => ({
         ...prevState,
         [key]: value,
@@ -72,10 +70,13 @@ const AddArt = () => {
         </div>
         <div className="valid__form">
           <div>
-            <input className="input" onChange={(e) => {
-              changeDataInput(e, 'title')
-            }} type="text"
-                   value={dataForm.title}
+            <input
+              className="input"
+              onChange={(e) => {
+                changeDataInput(e, 'title')
+              }}
+              type="text"
+              value={dataForm.title}
             />
           </div>
           <div>

@@ -1,18 +1,19 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 import logo from '../../assets/images/Logo.png';
-import "./Footer.scss"
+import './Footer.scss';
 
 const Footer = () => {
 
-  const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')))
+  const [isLogin, setIsLogin] = useState(JSON.parse(localStorage.getItem('isLogin')));
 
   const islogout = () => {
     localStorage.setItem('isLogin', JSON.stringify(false))
     setIsLogin(JSON.parse(localStorage.getItem('isLogin')))
+    localStorage.setItem('myUser', JSON.stringify([]))
     window.location.reload();
-  }
+  };
 
   return (
     <div>
@@ -20,7 +21,10 @@ const Footer = () => {
         <div className="footer__second__container">
           <div className="foot">
             <div>
-              <img src={logo}/>
+              <img
+                src={logo}
+                alt='Logo'
+              />
             </div>
             {!isLogin
               ? (

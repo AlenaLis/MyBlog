@@ -15,6 +15,11 @@
         align-items: center;
         align-content: center;
 
+        a {
+          text-decoration: none;
+          color: #242424;
+        }
+
         .header__button {
           border: 1px solid #242424;
           font-family: 'IBM Plex Sans', sans-serif;
@@ -54,6 +59,11 @@
         p:hover {
           color: #242424;
           border-bottom: 1px solid #242424;
+        }
+
+        a {
+          text-decoration: none;
+          color: #242424;
         }
       }
 
